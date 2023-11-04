@@ -1,33 +1,37 @@
-// import { useState } from "react";
-
 function ListGroup() {
-  return <h1>ahhjlaekfgjlase</h1>;
-  // let items = ["seif", "ahmed", "yousef"];
-  // // hook
-  // const [selected_index,set_selected_index]=useState(-1)
+  let films = [
+    "the godfather",
+    "the dark knight",
+    "fight club",
+    "inception",
+    "me before you",
+    "the matrix",
+  ];
 
-  //   return (
-  //   <>
-  //     <h1 className="text-center">names</h1>
-  //     {items.length === 0 && <p>no item found</p>}
-  //     <ul className="list-group">
-  //       {items.map((item, index) => (
-  //         <li
-  //           className={
-  //             selected_index === index
-  //               ? "list-group-item active"
-  //               : "list-group-item"
-  //           }
-  //           key={item}
-  //           onClick={() => {
-  //             selected_index = index;
-  //           }}
-  //         >
-  //           {item}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </>
-  // );
+  // let alert = () => {
+  //   if (films.length === 0) {
+  //     return <li>no films found</li>;
+  //   }
+  // };
+
+  return (
+    <>
+      <h1>list of films</h1>
+      {/* {alert()} */}
+      {films.length === 0 && <li>no films found</li>}
+      <ul className="list-group">
+        {films.map((film, index) => (
+          <li
+            key={film}
+            onClick={() => console.log(film, index)}
+            className="list-group-item"
+          >
+            {film}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
+
 export default ListGroup;
