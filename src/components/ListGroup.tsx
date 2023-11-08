@@ -1,30 +1,33 @@
-function ListGroup() {
-  let films = [
-    "the godfather",
-    "the dark knight",
-    "fight club",
-    "inception",
-    "me before you",
-    "the matrix",
-  ];
+import { useState } from "react";
 
-  // let alert = () => {
-  //   if (films.length === 0) {
-  //     return <li>no films found</li>;
-  //   }
-  // };
+interface props {
+  films: string[];
+  heading: string;
+  on_select_item:(item:string)=>void;
+}
+
+function ListGroup({ films, heading, on_select_item }: props) {
+  //hook
+  let [selected_index, setselected_index] = useState(-1);
 
   return (
     <>
-      <h1>list of films</h1>
+      <h1 className="text-center">{heading}</h1>
       {/* {alert()} */}
       {films.length === 0 && <li>no films found</li>}
-      <ul className="list-group">
+      <ul className="list-group text-center">
         {films.map((film, index) => (
           <li
             key={film}
-            onClick={() => console.log(film, index)}
-            className="list-group-item"
+            onClick={() => {
+              setselected_index(index);
+              on_select_item(film)
+            }}
+            className={
+              selected_index === index
+                ? "list-group-item text-center active"
+                : "list-group-item"
+            }
           >
             {film}
           </li>

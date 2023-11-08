@@ -1,8 +1,21 @@
 import ListGroup from "./components/ListGroup";
 
 // import Message from "./massage";
+
 function App() {
-  return <div><ListGroup/></div>
+    let films = [
+      "the godfather",
+      "the dark knight",
+      "fight club",
+      "inception",
+      "me before you",
+      "the matrix",
+    ];
+    let handel_selected_item=(item:string)=>{
+console.log(item);
+alert(item)
+    }
+  return <div><ListGroup films={films} heading="films" on_select_item={handel_selected_item}/></div>
  
 }
 export default App;
